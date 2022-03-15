@@ -1,0 +1,445 @@
+/* ===== GOOGLE FONT ===== */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+/* ==== VARIABLES CSS ==== */
+:root {
+  /* == FONT HIGHT == */
+  --header-hight: 3rem;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-bold: 700;
+
+  /* == COLORS == */
+  --first-clr: #a29596;
+  --primary: #a29596;
+  --second-clr: #33303d;
+  --black-clr: #111;
+  --white-clr: #fff;
+
+  /* == TIPOGRAFIA ==  */
+  --font: "Roboto", sans-serif;
+  --biggest-font: 1.5rem;
+  --normal-font: 0.938rem;
+  --smaller-font: 0.75rem;
+
+  /* == Z-INDEX == */
+  --z-back: -10;
+  --z-noraml: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+/* ===== BASIC ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--font);
+  background-color: var(--white-clr);
+  color: var(--black-clr);
+  margin: var(--header-hight) 0 0 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+  padding: 0;
+  margin: 0;
+}
+/* ====== LAYOUT ====== */
+.bd-grid {
+  min-width: 1200px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.l-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: var(--white-clr);
+  box-shadow: 0px 0px 20px rgb(0 0 0 / 20%);
+}
+
+/* ===== PAGES ===== */
+.nav {
+  height: var(--header-hight);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 300px;
+}
+@media (max-width: 968px) {
+  .nav__menu {
+    position: fixed;
+    left: -100%;
+    top: var(--header-hight);
+    background-color: var(--white-clr);
+    width: 80%;
+    height: 100%;
+    z-index: var(--z-fixed);
+    transition: 0.3s;
+  }
+}
+.nav__item {
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+}
+.nav__link {
+  display: block;
+  color: black;
+  padding: 0.5rem 1.9rem;
+  transition: 0.3s;
+}
+.nav__toggle {
+  cursor: pointer;
+}
+.nav__toggle i,
+.nav__shop i {
+  font-size: 1.5rem;
+}
+/* ===== APARECER MENU ===== */
+.show {
+  left: 0;
+}
+
+/* ===== HOME ===== */
+.home {
+  height: clac(100vh - var(--header-hight));
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "sneaker";
+  overflow: hidden;
+}
+
+/* ===== SNEAKER ===== */
+.sneaker {
+  grid-row: 1;
+  grid-column: 1;
+  grid-area: sneaker;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9rem 0 0;
+  position: relative;
+}
+
+.sneaker__figure {
+  width: 240px;
+  height: 240px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.sneaker__img {
+  width: 313px;
+  position: absolute;
+  top: 40%;
+  left: 6%;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  transform: rotate(30deg);
+  opacity: 0;
+  filter: drop-shadow(0px 10px 10px rgba(17, 17, 17, 0.4));
+}
+
+.sneaker__img.shows {
+  opacity: 1;
+}
+
+.sneaker__colors {
+  position: absolute;
+  right: 2%;
+}
+.sneaker__color {
+  display: block;
+  width: 11px;
+  height: 11px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.sneaker__color.active {
+  border: 2px solid var(--white-clr);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 1);
+}
+.sneaker__colors-one {
+  background-color: var(--first-clr);
+}
+.sneaker__colors-two {
+  background-color: var(--black-clr);
+}
+
+/* ===== DATA ===== */
+.info {
+  padding: 1rem 3.125rem 0;
+}
+.data {
+  margin-bottom: 1.5rem;
+}
+.data__subtitle {
+  font-size: var(--normal-font);
+}
+.data__title {
+  font-size: var(--biggest-font);
+  margin-top: 0.5rem;
+  margin: 0;
+}
+.data__description {
+  margin-top: 1rem;
+  color: #777;
+  font-size: var(--normal-font);
+}
+
+/* ===== SIZE ===== */
+.actions {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+}
+.size .size__title {
+  font-size: var(--normal-font);
+  margin-bottom: 1rem;
+}
+.size__content {
+  display: flex;
+}
+.size__tallas {
+  width: 30px;
+  height: 30px;
+  font-weight: 400;
+  font-size: 20px;
+  margin-right: 0.5rem;
+  font-size: var(--smaller-font);
+  text-align: center;
+  line-height: 30px;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.size__tallas.active {
+  background-color: var(--primary);
+  color: var(--white-clr);
+  transition: 0.4s;
+}
+
+/* ===== CART ===== */
+.cart__title {
+  font-size: var(--normal-font);
+  margin-bottom: 1rem;
+}
+.cart__content {
+  width: 100px;
+  height: 30px;
+  display: flex;
+  transition: 0.4s;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary);
+  color: var(--white-clr);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+.plus,
+.mens {
+  cursor: pointer;
+}
+.price {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 83px;
+  background-color: var(--white-clr);
+  border-radius: 1.5rem 1.5rem 0 0;
+  box-shadow: 0 0 20px rgba(17, 17, 17, 0.25);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.price__title {
+  font-size: var(--biggest-font);
+  color: var(--black-clr);
+}
+.price__button {
+  background-color: var(--primary);
+  color: var(--white-clr);
+  padding: 1.25rem 3.125rem;
+  border-radius: 0.5rem;
+  transition: 0.4s;
+}
+/* ===== menu toggle ===== */
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: 0.5s;
+  background-color: #000;
+  margin-right: 40px;
+}
+.menu-toggle:hover .bar {
+  background-color: var(--primary);
+}
+@media (max-width: 968px) {
+  .menu-toggle .bar {
+    display: block;
+    cursor: pointer;
+  }
+  .menu-toggle:hover {
+    cursor: pointer;
+  }
+  .menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .nav__link:hover {
+    background: var(--primary);
+    width: 100%;
+    color: #fff;
+  }
+  .nav__link {
+    color: var(--black-clr);
+    display: block;
+    padding: 1rem 3em 1rem;
+    border-bottom: 2px solid transparent;
+  }
+}
+/* ===== HOVER EFFECTS ===== */
+
+/* ===== MEDIA QUERIS ===== */
+@media (min-width: 968px) {
+  body {
+    margin: 0;
+  }
+  .nav {
+    height: 4rem;
+    justify-content: center;
+  }
+  .nav__list {
+    display: flex;
+    margin: 0 3.5rem 0;
+  }
+  .nav__item {
+    margin-right: 3rem;
+    margin-bottom: 0;
+  }
+  .nav__toggle {
+    display: none;
+  }
+  .home {
+    height: 100vh;
+    grid-template-columns: max-content max-content;
+    grid-template-rows: max-content;
+    align-content: center;
+    justify-content: center;
+    column-gap: 6rem;
+  }
+  .info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .sneaker__figure {
+    width: 430px;
+    height: 430px;
+  }
+  .sneaker__img {
+    width: 550px;
+    left: -6%;
+    top: 30%;
+  }
+  .sneaker__colors {
+    right: initial;
+    bottom: -30px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+  }
+  .sneaker__color {
+    display: block;
+    width: 20px;
+    margin-right: 14px;
+    height: 20px;
+  }
+  .data {
+    margin-bottom: 2.5rem;
+  }
+  .data__subtitle {
+    font-size: 1.5rem;
+  }
+  .data__title {
+    font-size: 2.5rem;
+    transition: 0.4s;
+    color: var(--primary);
+  }
+  .size {
+    margin-bottom: 2.5rem;
+  }
+  .size__tallas {
+    width: 34px;
+    height: 34px;
+    line-height: 35px;
+  }
+  .price {
+    position: initial;
+    background-color: initial;
+    justify-content: space-between;
+    box-shadow: none;
+  }
+  .price__title {
+    color: var(--black-clr);
+    font-weight: var(--font-medium);
+  }
+  .size__title,
+  .cart__title {
+    font-weight: 400;
+    font-size: 20px;
+  }
+  .size__tallas {
+    width: 40px;
+    height: 40px;
+    font-size: 19px;
+  }
+  .cart__content {
+    padding: 1rem;
+    font-size: 19px;
+  }
+  .price__button {
+    padding: 1.25rem 2.125rem;
+  }
+  .nav__link::after {
+    content: "";
+    width: 0%;
+    height: 3px;
+    background: var(--primary);
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+  }
+  .nav__link:hover::after {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .bd-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
